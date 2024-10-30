@@ -10,14 +10,13 @@ var swiper = new Swiper(".swiper", {
     },
     mousewheel: true
 });
-
 swiper.on('slideChange', function () {
-    document.querySelectorAll(".Links li").forEach(li => li.classList.remove("activeLink"));
-    document.querySelectorAll(".Links li")[swiper.activeIndex].classList.add("activeLink");
-});
+    for (let i of document.querySelectorAll(".Links li")) i.classList.remove("activeLink")
+    Array.from(document.querySelectorAll(".Links li"))[swiper.activeIndex].classList.add("activeLink")
 
-function Navigate(index) {
-    document.querySelectorAll(".Links li").forEach(li => li.classList.remove("activeLink"));
-    document.querySelectorAll(".Links li")[index].classList.add("activeLink");
-    swiper.slideTo(index, 1000, true);
+});
+function Navigate(indx) {
+    for (let i of document.querySelectorAll(".Links li")) i.classList.remove("activeLink")
+    Array.from(document.querySelectorAll(".Links li"))[indx].classList.add("activeLink")
+    swiper.slideTo(indx, 1000, true)
 }
